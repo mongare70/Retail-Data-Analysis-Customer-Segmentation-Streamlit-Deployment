@@ -7,4 +7,4 @@ A web-based application created using Streamlit, an open source python library f
 
 ## Demo App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://app-starter-kit.streamlit.app/)
+[![Retail Data Analysis Customer Segmentation](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)]([https://app-starter-kit.streamlit.app/](https://retail-data-analysis-customer-segmentation-app.streamlit.app/))
