@@ -3,8 +3,8 @@
 ⬆️ Retail Data Analysis Customer Segmentation
 ```
 
-A web-based application created using Streamlit, an open source python library for building interactive data tools. This will enable retailers to automate the customer segmentation process, making the research accessible to non-technical people. 
+This is a web-based application created using Streamlit, an open-source Python library for building interactive data tools. It will enable retailers to automate the customer segmentation process, making the research accessible to non-technical people. 
 
 ## Demo App
 
-[![Retail Data Analysis Customer Segmentation](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)]([https://app-starter-kit.streamlit.app/](https://retail-data-analysis-customer-segmentation-app.streamlit.app/))
+[Retail analysis using Streamlit - Hillary Mongare.webm](https://github.com/user-attachments/assets/1abb17df-d201-43dd-9b88-14ad3e82c9b3)
