@@ -200,7 +200,7 @@ def perform_rfm_analysis(df):
         cols_to_scale = ["Recency", "Frequency", "Monetary"]
 
         # Initialize the scaler
-        global scaler 
+        global scaler
         scaler = StandardScaler()
 
         # Fit and transform only the selected columns
@@ -266,7 +266,6 @@ def perform_clustering(rfm_df):
             rfm_unscaled_part, columns=cols_to_unscale, index=rfm_df.index
         )
 
-
         st.write("Clustering Results:")
         st.write(rfm_df.head())
 
@@ -325,7 +324,7 @@ def generate_visualisations(df, df_cluster):
         ax.grid(True)
         st.pyplot(fig)
 
-    st.markdown('Top 10 Cities by Revenue')
+    st.markdown("Top 10 Cities by Revenue")
     # Top 10 Cities by Revenue
     if "City" in df.columns and "Total_Amount" in df.columns:
         city_revenue = (
@@ -345,7 +344,7 @@ def generate_visualisations(df, df_cluster):
         st.pyplot(fig)
 
     # Customer Spending Distribution
-    st.markdown('Customer Spending Distribution')
+    st.markdown("Customer Spending Distribution")
     if "Customer_ID" in df.columns and "Total_Amount" in df.columns:
         customer_spend = df.groupby("Customer_ID")["Total_Amount"].sum()
         fig, ax = plt.subplots(figsize=(10, 5))
@@ -357,10 +356,10 @@ def generate_visualisations(df, df_cluster):
         st.pyplot(fig)
 
     # Visualisations by Cluster (if clustering was successful)
-    st.subheader('Post-Hoc Visualisations')
+    st.subheader("Post-Hoc Visualisations")
     if "Cluster" in df_cluster.columns:
         # Age Distribution by Cluster
-        st.markdown('Age Distribution by Cluster')
+        st.markdown("Age Distribution by Cluster")
         if "Age" in df_cluster.columns:
             fig, ax = plt.subplots(figsize=(10, 6))
             sns.boxplot(x="Cluster", y="Age", data=df_cluster, ax=ax)
@@ -370,7 +369,7 @@ def generate_visualisations(df, df_cluster):
             st.pyplot(fig)
 
         # Gender Distribution by Cluster
-        st.markdown('Gender Distribution by Cluster')
+        st.markdown("Gender Distribution by Cluster")
         if "Gender" in df_cluster.columns:
             fig, ax = plt.subplots(figsize=(10, 6))
             sns.countplot(x="Cluster", hue="Gender", data=df_cluster, ax=ax)
@@ -380,7 +379,7 @@ def generate_visualisations(df, df_cluster):
             st.pyplot(fig)
 
         # Income Distribution by Cluster
-        st.markdown('Income Distribution by Cluster')
+        st.markdown("Income Distribution by Cluster")
         if "Income" in df_cluster.columns:
             fig, ax = plt.subplots(figsize=(10, 6))
             sns.countplot(x="Cluster", hue="Income", data=df_cluster, ax=ax)
@@ -390,7 +389,7 @@ def generate_visualisations(df, df_cluster):
             st.pyplot(fig)
 
         # Product Category Distribution by Cluster
-        st.markdown('Product Category Distribution by Cluster')
+        st.markdown("Product Category Distribution by Cluster")
         if "Product_Category" in df_cluster.columns:
             fig, ax = plt.subplots(figsize=(10, 6))
             sns.countplot(x="Cluster", hue="Product_Category", data=df_cluster, ax=ax)
@@ -400,7 +399,7 @@ def generate_visualisations(df, df_cluster):
             st.pyplot(fig)
 
         # Ratings Distribution by Cluster
-        st.markdown('Ratings Distribution by Cluster')
+        st.markdown("Ratings Distribution by Cluster")
         if "Ratings" in df_cluster.columns:
             fig, ax = plt.subplots(figsize=(10, 6))
             sns.countplot(x="Cluster", hue="Ratings", data=df_cluster, ax=ax)
@@ -410,7 +409,7 @@ def generate_visualisations(df, df_cluster):
             st.pyplot(fig)
 
         # Sentiment Distribution by Cluster
-        st.markdown('Sentiment Distribution by Cluster')
+        st.markdown("Sentiment Distribution by Cluster")
         if "sentiment_comment" in df_cluster.columns:
             fig, ax = plt.subplots(figsize=(10, 6))
             sns.countplot(x="Cluster", hue="sentiment_comment", data=df_cluster, ax=ax)
@@ -420,7 +419,7 @@ def generate_visualisations(df, df_cluster):
             st.pyplot(fig)
 
         # Distribution of Spend by Cluster (Pie Chart)
-        st.markdown('Distribution of Spend by Cluster (Pie Chart)')
+        st.markdown("Distribution of Spend by Cluster (Pie Chart)")
         if "Total_Amount" in df_cluster.columns:
             cluster_spend = df_cluster.groupby("Cluster")["Total_Amount"].sum()
             fig, ax = plt.subplots(figsize=(10, 8))
@@ -430,7 +429,7 @@ def generate_visualisations(df, df_cluster):
             st.pyplot(fig)
 
         # Total Amount by Cluster (Box Plot)
-        st.markdown('Total Amount by Cluster (Box Plot)')
+        st.markdown("Total Amount by Cluster (Box Plot)")
         if "Total_Amount" in df_cluster.columns:
             fig, ax = plt.subplots(figsize=(10, 6))
             sns.boxplot(x="Cluster", y="Total_Amount", data=df_cluster, ax=ax)
@@ -440,7 +439,7 @@ def generate_visualisations(df, df_cluster):
             st.pyplot(fig)
 
         # Total Purchases by Cluster (Box Plot)
-        st.markdown('Total Purchases by Cluster (Box Plot)')
+        st.markdown("Total Purchases by Cluster (Box Plot)")
         if "Total_Purchases" in df_cluster.columns:
             fig, ax = plt.subplots(figsize=(10, 6))
             sns.boxplot(x="Cluster", y="Total_Purchases", data=df_cluster, ax=ax)
@@ -450,7 +449,7 @@ def generate_visualisations(df, df_cluster):
             st.pyplot(fig)
 
     # Ratings Distribution by Product Category
-    st.markdown('Ratings Distribution by Product Category')
+    st.markdown("Ratings Distribution by Product Category")
     if "Product_Category" in df.columns and "Ratings" in df.columns:
         fig, ax = plt.subplots(figsize=(10, 6))
         sns.countplot(x="Product_Category", hue="Ratings", data=df, ax=ax)
@@ -460,7 +459,7 @@ def generate_visualisations(df, df_cluster):
         st.pyplot(fig)
 
     # Top 10 Product Brands by Average Ratings
-    st.markdown('Top 10 Product Brands by Average Ratings')
+    st.markdown("Top 10 Product Brands by Average Ratings")
     if "Product_Brand" in df.columns and "Ratings" in df.columns:
         top_brands = (
             df.groupby("Product_Brand")["Ratings"]
@@ -479,6 +478,12 @@ def generate_visualisations(df, df_cluster):
 
 # Streamlit application
 st.title("Retail Data Analysis Customer Segmentation")
+st.text(
+    """
+    This application is designed to perform customer segmentation on retail data using BIRCH Algorithm set at 3 clusters.
+    Upload the data and the application will perform data cleaning and preprocessing, feature engineering, RFM (Recency, Frequency, Monetary) analysis, and clustering.
+    Then generate visualisations to help understand the customer segments."""
+)
 
 uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
 
