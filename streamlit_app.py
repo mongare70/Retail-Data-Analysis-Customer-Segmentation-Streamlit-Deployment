@@ -480,9 +480,12 @@ def generate_visualisations(df, df_cluster):
 st.title("Retail Data Analysis Customer Segmentation")
 st.text(
     """
-    This application is designed to perform customer segmentation on retail data using BIRCH Algorithm set at 3 clusters.
-    Upload the data and the application will perform data cleaning and preprocessing, feature engineering, RFM (Recency, Frequency, Monetary) analysis, and clustering.
-    Then generate visualisations to help understand the customer segments."""
+    This application is designed to perform customer segmentation on retail data using BIRCH Algorithm set at 3 clusters. Upload the data and the application will perform data cleaning and preprocessing, feature engineering, RFM (Recency, Frequency, Monetary) analysis, and clustering. Then generate visualisations to help understand the customer segments."""
+)
+st.text(
+    """
+The required columns include: "Transaction_ID", "Customer_ID", "Name", "Email", "Gender", "Date", "Time", "Address", "Zipcode", "State", "City", "Income", "Product_Brand", "Feedback", "Customer_Segment", "Product_Category", "Age", "Total_Purchases", "Amount", "Total_Amount", "Ratings", and "sentiment"
+"""
 )
 
 uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
